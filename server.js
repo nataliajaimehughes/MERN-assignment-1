@@ -14,11 +14,11 @@ const app = express();
 
 app.use(express.json());
 
-app.use('/:campsiteId', campsiteRouter);
+app.use('/campsites', campsiteRouter);
 // Uses the partnerRouter at /partners, similar to the campsiteRouter above at /campsites
 // Uses the promotionRouter at /promotions, similar to the campsiteRouter above at /campsites
-app.use('/:promotionId', promotionRouter);
-app.use('/:partnerId', partnerRouter);
+app.use('/promotions', promotionRouter);
+app.use('/partners', partnerRouter);
 
 app.use(express.static(__dirname + '/public'));
 
