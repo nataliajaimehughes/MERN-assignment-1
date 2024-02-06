@@ -4,22 +4,22 @@ const partnerRouter = express.Router();
 
 // Implements the /partners/:partnerId routes
 partnerRouter.route('/partners/:partnerId')
-.all('/partners/:partnerId', (req, res, next) => {
+.all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     next();
 })
-.get('/partners/:partnerId', (req, res) => {
+.get((req, res) => {
     res.end('Will send all the partners to you');
 })
-.post('/partners/:partnerId', (req, res) => {
+.post((req, res) => {
     res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
 })
-.put('/partners/:partnerId', (req, res) => {
+.put((req, res) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /partners');
 })
-.delete('/partners/:partnerId', (req, res) => {
+.delete((req, res) => {
     res.end('Deleting all partners');
 });
 
