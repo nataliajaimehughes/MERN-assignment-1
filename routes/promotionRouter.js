@@ -3,22 +3,22 @@ const express = require('express');
 const promotionRouter = express.Router();
 
 promotionRouter.route('/promotions/:promotionId')
-.all((req, res, next) => {
+.all('/promotions/:promotionId', (req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
     next();
 })
-.get((req, res) => {
+.get('/promotions/:promotionId', (req, res) => {
     res.end('Will send all the promotions to you');
 })
-.post((req, res) => {
+.post('/promotions/:promotionId', (req, res) => {
     res.end(`Will add the promotion: ${req.body.name} with description: ${req.body.description}`);
 })
-.put((req, res) => {
+.put('/promotions/:promotionId', (req, res) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /promotions');
 })
-.delete((req, res) => {
+.delete('/promotions/:promotionId', (req, res) => {
     res.end('Deleting all promotions');
 });
 
