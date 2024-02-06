@@ -3,7 +3,7 @@ const express = require('express');
 const partnerRouter = express.Router();
 
 // Implements the /campsites/:campsiteId routes
-partnerRouter.route('/')
+partnerRouter.route('/partners/:partnerId')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');

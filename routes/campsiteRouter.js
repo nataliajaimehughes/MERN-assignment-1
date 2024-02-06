@@ -2,7 +2,7 @@ const express = require('express');
 const campsiteRouter = express.Router();
 
 // Implements the /campsites and /campsites/:campsiteId routes
-campsiteRouter.route('/')
+campsiteRouter.route('/campsites/:campsiteId')
 .all((req, res, next) => {
     res.statusCode = 200;
     res.setHeader('Content-Type', 'text/plain');
