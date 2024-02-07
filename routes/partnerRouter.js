@@ -1,8 +1,9 @@
-// Creates the partner router and export it, similar to campsiteRouter.js
+// Creates the partner router and export it, similar to partnerRouter.js
 const express = require('express');
 const partnerRouter = express.Router();
 
 // Implements the /partners/:partnerId routes
+
 partnerRouter.route('/')
 .all((req, res, next) => {
     res.statusCode = 200;
@@ -23,19 +24,20 @@ partnerRouter.route('/')
     res.end('Deleting all partners');
 });
 
-partnerRouter.route('/partners/:partnerId')
+partnerRouter.route('/:partnerId')
 .get((req, res) => {
-    res.end('Will send all the partners to you');
+    res.end(`We will return one partner with ${req.params.partnerId}`);
 })
 .post((req, res) => {
-    res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
+    res.statusCode = 403;
+    res.end(`Post operation not supported at /partners/${req.params.partnerId}.`);
 })
 .put((req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /partners');
+    res.end(`Will update partner with ID:${req.params.partnerId} Data:${req.body}`);
 })
 .delete((req, res) => {
-    res.end('Deleting all partners');
+    res.end(`Deleting partner with ID: ${req.params.partnerId}`);
 });
 
 module.exports = partnerRouter;
