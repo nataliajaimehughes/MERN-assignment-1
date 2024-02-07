@@ -21,18 +21,20 @@ partnerRouter.route('/')
 })
 .delete((req, res) => {
     res.end('Deleting all partners');
-})
-.get('/partners/:partnerId', (req, res) => {
+});
+
+partnerRouter.route('/partners/:partnerId')
+.get((req, res) => {
     res.end('Will send all the partners to you');
 })
-.post('/partners/:partnerId', (req, res) => {
+.post((req, res) => {
     res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
 })
-.put('/partners/:partnerId', (req, res) => {
+.put((req, res) => {
     res.statusCode = 403;
     res.end('PUT operation not supported on /partners');
 })
-.delete('/partners/:partnerId', (req, res) => {
+.delete((req, res) => {
     res.end('Deleting all partners');
 });
 
