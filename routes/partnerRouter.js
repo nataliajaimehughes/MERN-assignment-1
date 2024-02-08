@@ -11,23 +11,23 @@ partnerRouter.route('/')
     next();
 })
 .get((req, res) => {
-    res.end('Will send all the partners to you');
+    res.end('Will send all the partners to you.');
 })
 .post((req, res) => {
-    res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}`);
+    res.end(`Will add the partner: ${req.body.name} with description: ${req.body.description}.`);
 })
 .put((req, res) => {
     res.statusCode = 403;
-    res.end('PUT operation not supported on /partners');
+    res.end('PUT operation not supported on /partners.');
 })
 .delete((req, res) => {
-    res.end('Deleting all partners');
+    res.end('Deleting all partners.');
 });
 
 // TIP: Quickly change words using Ctrl+F > left downward arrow > Replace word
 partnerRouter.route('/:partnerId')
 .get((req, res) => {
-    res.end(`We will return one partner with ID: ${req.params.partnerId}`);
+    res.end(`We will return one partner with ID: ${req.params.partnerId}.`);
 })
 .post((req, res) => {
     res.statusCode = 403;
@@ -35,10 +35,10 @@ partnerRouter.route('/:partnerId')
 })
 .put((req, res) => {
     res.statusCode = 403;
-    res.end(`Will update partner with ID:${req.params.partnerId} Data:${req.body}`);
+    res.end(`Will update partner with ID:${req.params.partnerId} Data:${req.body}.`);
 })
 .delete((req, res) => {
-    res.end(`Deleting partner with ID: ${req.params.partnerId}`);
+    res.end(`Deleting partner with ID: ${req.params.partnerId}.`);
 });
 
 module.exports = partnerRouter;
