@@ -22,9 +22,9 @@ promotionRouter.route('/')
     res.end('Deleting all promotions.');
 });
 
-promotionRouter.route('/promotions/:promotionId.')
+promotionRouter.route('/:promotionId')
 .get((req, res) => {
-    res.end(`Will send the promotion with ${req.params.promotionId} to you.`);
+    res.end(`Will send the promotion with ID: ${req.params.promotionId} to you.`);
 })
 .post((req, res) => {
     res.statusCode = 403;
