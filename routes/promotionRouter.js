@@ -1,4 +1,4 @@
-// Creates the promotion router and exports it, similar to campsiteRouter.js
+// Creates the promotion router and exports it, similar to promotionRouter.js
 const express = require('express');
 const promotionRouter = express.Router();
 
@@ -24,17 +24,17 @@ promotionRouter.route('/')
 
 promotionRouter.route('/promotions/:promotionId')
 .get((req, res) => {
-    res.end('Will send all the promotions to you');
+    res.end(`Will send the promotion with ${req.params.promotionId} to you.`);
 })
 .post((req, res) => {
-    res.end(`Will add the promotion: ${req.body.name} with description: ${req.body.description}`);
+    res.statusCode = 403;
+    res.end(`POST operation not supported at /promotions/${req.params.promotionId}.`);
 })
 .put((req, res) => {
-    res.statusCode = 403;
-    res.end('PUT operation not supported on /promotions');
+    res.end(`Will update promotion with ID:${req.params.promotionId} Data:${req.body}.`);
 })
 .delete((req, res) => {
-    res.end('Deleting all promotions');
+    res.end(`Deleting promotion with ID: ${req.params.promotionId}`);
 });
 
 module.exports = promotionRouter;

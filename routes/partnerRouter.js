@@ -24,9 +24,10 @@ partnerRouter.route('/')
     res.end('Deleting all partners');
 });
 
+// TIP: Quickly change words using Ctrl+F > left downward arrow > Replace word
 partnerRouter.route('/:partnerId')
 .get((req, res) => {
-    res.end(`We will return one partner with ${req.params.partnerId}`);
+    res.end(`We will return one partner with ID: ${req.params.partnerId}`);
 })
 .post((req, res) => {
     res.statusCode = 403;
