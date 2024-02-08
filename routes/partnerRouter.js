@@ -31,7 +31,7 @@ partnerRouter.route('/:partnerId')
 })
 .post((req, res) => {
     res.statusCode = 403;
-    res.end(`Post operation not supported at /partners/${req.params.partnerId}.`);
+    res.end(`POST operation not supported at /partners/${req.params.partnerId}.`);
 })
 .put((req, res) => {
     res.statusCode = 403;

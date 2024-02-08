@@ -28,7 +28,7 @@ campsiteRouter.route('/:campsiteId')
 }) // POST operation not supported at campsiteId (need to POST / add new resource using main route '/')
 .post((req, res) => {
     res.statusCode = 403;
-    res.end(`Post operation not supported at /campsites/${req.params.campsiteId}.`);
+    res.end(`POST operation not supported at /campsites/${req.params.campsiteId}.`);
 })
 .put((req, res) => {
     res.end(`Will update campsite with ID:${req.params.campsiteId} Data:${req.body}`);
